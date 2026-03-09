@@ -14,9 +14,60 @@
     <link rel="apple-touch-icon" href="/icon-192.svg" />
 
     <title>Mi Sistema</title>
+
+    <style>
+      body {
+        margin: 0;
+        background: #0b1220;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      #loading-screen {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #0b1220;
+        color: white;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255,255,255,0.2);
+        border-top: 4px solid #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 16px;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
+
   <body>
+
+    <div id="loading-screen">
+      <div class="spinner"></div>
+      <div>Cargando Mi Sistema...</div>
+    </div>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loading-screen");
+        if (loader) loader.style.display = "none";
+      });
+    </script>
+
   </body>
 </html>
