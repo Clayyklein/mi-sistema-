@@ -78,11 +78,11 @@
   padding: 26px 26px 40px;
 }
 
-/* CAMBIO SOLO AQUÍ */
+/* MODIFICACIÓN */
 .page {
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
 }
 
 .pageHeader {
