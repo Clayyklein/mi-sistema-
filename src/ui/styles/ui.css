@@ -1,6 +1,6 @@
 .appShell {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: clamp(220px, 18vw, 280px) minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -75,14 +75,14 @@
 }
 
 .content {
+  min-width: 0;
+  width: 100%;
   padding: 26px 26px 40px;
 }
 
-/* MODIFICADO PARA QUE USE MÁS ANCHO */
 .page {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: none;
 }
 
 .pageHeader {
@@ -112,13 +112,13 @@
 
 .grid2 {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 1fr);
   gap: 16px;
 }
 
 .grid3 {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 16px;
 }
 
@@ -334,6 +334,12 @@
     grid-template-columns: 1fr;
   }
   .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .grid2 {
     grid-template-columns: 1fr;
   }
 }
