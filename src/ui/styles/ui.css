@@ -78,10 +78,11 @@
   padding: 26px 26px 40px;
 }
 
+/* MODIFICADO PARA QUE USE MÁS ANCHO */
 .page {
   width: 100%;
-  max-width: none;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .pageHeader {
@@ -109,10 +110,9 @@
   align-items: center;
 }
 
-/* CAMBIO AQUÍ */
 .grid2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 16px;
 }
 
@@ -335,5 +335,22 @@
   }
   .formGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .sidebar,
+  .headerActions,
+  .noPrint {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+  .card {
+    box-shadow: none !important;
+  }
+  .content {
+    padding: 0 !important;
   }
 }
