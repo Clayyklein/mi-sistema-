@@ -37,7 +37,7 @@ function getDisciplineColor(date: string) {
   if (state === "clean") return "#22c55e";
   if (state === "alert") return "#f59e0b";
   if (state === "relapse") return "#ef4444";
-  return "var(--card-border)";
+  return "var(--border)";
 }
 
 export function DashboardPage() {
@@ -162,7 +162,7 @@ export function DashboardPage() {
                       height: 20,
                       borderRadius: 5,
                       background: getDisciplineColor(date),
-                      border: "1px solid var(--card-border)",
+                      border: "1px solid var(--border)",
                       cursor: "pointer",
                       padding: 0
                     }}
