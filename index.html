@@ -1,63 +1,51 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<link rel="icon" type="image/svg+xml" href="/icon-192.svg" />
-<link rel="manifest" href="/manifest.json" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Sistema</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#2563eb" />
-<meta name="description" content="Mi Sistema Personal de productividad, disciplina y hábitos." />
+  <style>
+    body {
+      margin: 0;
+      background: #070b12;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+    }
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-title" content="Mi Sistema" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<link rel="apple-touch-icon" href="/icon-192.svg" />
+    #loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
 
-<title>Mi Sistema</title>
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255,255,255,0.2);
+      border-top: 4px solid #2f6bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
 
-<style>
-
-body{
-margin:0;
-background:#0b1220;
-font-family:system-ui,-apple-system,sans-serif;
-}
-
-#loading-screen{
-position:fixed;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-background:#0b1220;
-color:white;
-z-index:9999;
-}
-
-.spinner{
-width:40px;
-height:40px;
-border:4px solid rgba(255,255,255,0.2);
-border-top:4px solid #3b82f6;
-border-radius:50%;
-animation:spin 1s linear infinite;
-margin-bottom:16px;
-}
-
-@keyframes spin{
-to{ transform:rotate(360deg); }
-}
-
-</style>
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="loading-screen">
-<div class="spinner"></div>
-<div>Cargando Mi Sistema...</div>
+<div id="loader">
+  <div class="spinner"></div>
+  <div>Cargando sistema...</div>
 </div>
 
 <div id="root"></div>
@@ -65,10 +53,10 @@ to{ transform:rotate(360deg); }
 <script type="module" src="/src/main.tsx"></script>
 
 <script>
-setTimeout(() => {
-const loader = document.getElementById("loading-screen");
-if(loader) loader.style.display="none";
-}, 1200);
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    if (loader) loader.style.display = "none";
+  });
 </script>
 
 </body>
