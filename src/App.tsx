@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { AppShell } from "./ui/layout/AppShell";
 import { DashboardPage } from "./ui/pages/DashboardPage";
 import { JournalPage } from "./ui/pages/JournalingPage";
@@ -10,6 +10,16 @@ import { PersonalTrackingPage } from "./ui/pages/PersonalTrackingPage";
 import { WeeklyReviewPage } from "./ui/pages/WeeklyReviewPage";
 import { HistoryPage } from "./ui/pages/HistoryPage";
 import { SettingsPage } from "./ui/pages/SettingsPage";
+
+function ScrollToTopOnRouteChange() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
 
@@ -57,6 +67,7 @@ export default function App() {
 
   return (
     <AppShell>
+      <ScrollToTopOnRouteChange />
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<DashboardPage />} />

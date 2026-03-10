@@ -7,7 +7,9 @@
 .sidebar {
   position: sticky;
   top: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  align-self: start;
   padding: 18px 14px;
   background: var(--sidebar);
   backdrop-filter: blur(12px);
@@ -320,7 +322,9 @@
   }
   .sidebar {
     position: relative;
+    min-height: 0;
     height: auto;
+    align-self: stretch;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
