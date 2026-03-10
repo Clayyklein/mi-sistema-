@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AppShell } from "./ui/layout/AppShell";
 import { DashboardPage } from "./ui/pages/DashboardPage";
@@ -11,6 +12,49 @@ import { HistoryPage } from "./ui/pages/HistoryPage";
 import { SettingsPage } from "./ui/pages/SettingsPage";
 
 export default function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 900);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#070b12",
+        color: "#f2f5ff",
+        flexDirection: "column",
+        fontFamily: "system-ui"
+      }}>
+        <div style={{
+          width: 36,
+          height: 36,
+          border: "3px solid rgba(255,255,255,0.2)",
+          borderTop: "3px solid #2f6bff",
+          borderRadius: "50%",
+          animation: "spin 1s linear infinite"
+        }} />
+        <div style={{ marginTop: 14, opacity: 0.7 }}>
+          Cargando sistema...
+        </div>
+
+        <style>{`
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
   return (
     <AppShell>
       <Routes>
