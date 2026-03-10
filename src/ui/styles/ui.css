@@ -78,7 +78,6 @@
   padding: 26px 26px 40px;
 }
 
-/* MODIFICACIÓN */
 .page {
   width: 100%;
   max-width: none;
@@ -110,9 +109,10 @@
   align-items: center;
 }
 
+/* CAMBIO AQUÍ */
 .grid2 {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 16px;
 }
 
@@ -335,22 +335,5 @@
   }
   .formGrid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media print {
-  .sidebar,
-  .headerActions,
-  .noPrint {
-    display: none !important;
-  }
-  body {
-    background: #fff !important;
-  }
-  .card {
-    box-shadow: none !important;
-  }
-  .content {
-    padding: 0 !important;
   }
 }
