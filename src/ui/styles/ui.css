@@ -1,7 +1,6 @@
 .appShell {
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  width: 100vw;
+  grid-template-columns: clamp(220px, 18vw, 280px) minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -78,20 +77,12 @@
 .content {
   min-width: 0;
   width: 100%;
-  max-width: none;
-  padding: 20px 18px 28px;
-}
-
-.content > * {
-  width: 100%;
-  max-width: none;
-  margin: 0;
+  padding: 26px 26px 40px;
 }
 
 .page {
   width: 100%;
   max-width: none;
-  margin: 0;
 }
 
 .pageHeader {
@@ -121,13 +112,13 @@
 
 .grid2 {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 1fr);
   gap: 16px;
 }
 
 .grid3 {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 16px;
 }
 
@@ -344,18 +335,6 @@
   }
   .formGrid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 1366px) {
-  .content {
-    padding: 16px 14px 24px;
-  }
-  .grid2 {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .grid3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
