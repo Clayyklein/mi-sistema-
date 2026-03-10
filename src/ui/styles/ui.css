@@ -1,13 +1,17 @@
 .appShell {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 250px minmax(0, 1fr);
+  width: 100%;
+  align-items: start;
   min-height: 100vh;
 }
 
 .sidebar {
   position: sticky;
   top: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  align-self: start;
   padding: 18px 14px;
   background: var(--sidebar);
   backdrop-filter: blur(12px);
@@ -75,14 +79,24 @@
 }
 
 .content {
-  padding: 26px 26px 40px;
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  overflow: visible;
+  padding: 20px 18px 28px;
 }
 
-/* MODIFICADO PARA QUE USE MÁS ANCHO */
+.content > * {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
 .page {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
 }
 
 .pageHeader {
@@ -112,7 +126,7 @@
 
 .grid2 {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 16px;
 }
 
@@ -320,7 +334,9 @@
   }
   .sidebar {
     position: relative;
+    min-height: 0;
     height: auto;
+    align-self: stretch;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
@@ -334,6 +350,24 @@
     grid-template-columns: 1fr;
   }
   .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1366px) {
+  .content {
+    padding: 16px 14px 24px;
+  }
+  .grid2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .grid2 {
     grid-template-columns: 1fr;
   }
 }
